@@ -23,9 +23,11 @@ import me.chanjar.weixin.mp.bean.menu.WxMpMenu;
 
 import static me.chanjar.weixin.common.api.WxConsts.MenuButtonType;
 
-/**
- * @author lichen
- */
+/** 
+* @Description: 菜单配置
+* @Author: lichen
+* @Date: 2018-12-22 14:55
+*/
 @RestController
 @RequestMapping("/wx/menu/{appid}")
 public class WxMenuController {
@@ -45,8 +47,16 @@ public class WxMenuController {
         return WxMpConfiguration.getMpServices().get(appid).getMenuService().menuCreate(menu);
     }
 
+    /**
+     * @Description: 创建菜单样例
+     * @Param: [appid]
+     * @return: java.lang.String
+     * @Author: lichen
+     * @Date: 2018-12-22 15:00
+     */
     @GetMapping("/create")
     public String menuCreateSample(@PathVariable String appid) throws WxErrorException, MalformedURLException {
+
         WxMenu menu = new WxMenu();
         WxMenuButton button1 = new WxMenuButton();
         button1.setType(MenuButtonType.CLICK);

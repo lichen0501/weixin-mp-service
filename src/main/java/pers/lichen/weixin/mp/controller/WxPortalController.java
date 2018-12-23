@@ -16,14 +16,23 @@ import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 
-/**
- * @author lichen
- */
+/** 
+* @Description: 微信操作处理
+* @Author: lichen
+* @Date: 2018-12-22 14:56
+*/
 @RestController
 @RequestMapping("/wx/portal/{appid}")
 public class WxPortalController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     * @Description: 验证服务器
+     * @Param: [appid, signature, timestamp, nonce, echostr]
+     * @return: java.lang.String
+     * @Author: lichen
+     * @Date: 2018-12-22 14:58
+     */
     @GetMapping(produces = "text/plain;charset=utf-8")
     public String authGet(@PathVariable String appid,
                           @RequestParam(name = "signature", required = false) String signature,
@@ -49,6 +58,13 @@ public class WxPortalController {
         return "非法请求";
     }
 
+    /**
+     * @Description: 响应微信事件
+     * @Param: [appid, requestBody, signature, timestamp, nonce, openid, encType, msgSignature]
+     * @return: java.lang.String
+     * @Author: lichen
+     * @Date: 2018-12-22 14:59
+     */
     @PostMapping(produces = "application/xml; charset=UTF-8")
     public String post(@PathVariable String appid,
                        @RequestBody String requestBody,
@@ -58,6 +74,7 @@ public class WxPortalController {
                        @RequestParam("openid") String openid,
                        @RequestParam(name = "encrypt_type", required = false) String encType,
                        @RequestParam(name = "msg_signature", required = false) String msgSignature) {
+
         final WxMpService wxService = WxMpConfiguration.getMpServices().get(appid);
         this.logger.info("\n接收微信请求：[openid=[{}], [signature=[{}], encType=[{}], msgSignature=[{}],"
                 + " timestamp=[{}], nonce=[{}], requestBody=[\n{}\n] ",

@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  mvc:
+    static-path-pattern: /*
+
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+logging:
+  level:
+    org.springframework.web: INFO
+    pers.lichen.weixin.mp: DEBUG
+    me.chanjar.weixin: DEBUG
+
+wx:
+  mp:
+    configs:
+      - appId: wxb165642e36b0a953
+        secret: d2227ff0551f9f179df3a51b2de1ae8d
+        token: newfiber
+      - appId: 111
+        secret: 111
+        token: 111
+        aesKey: 111

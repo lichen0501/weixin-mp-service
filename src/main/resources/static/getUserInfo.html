@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="info">
+
+</div>
+</body>
+<script>
+    //从url中获取code
+    var code = getUrlParam("code");
+    var url = location.href
+
+    if(!code){
+        var param = {
+            url:url
+        }
+        $.ajax({
+            type: "post",
+            url: "/wx/oauth2/wxb165642e36b0a953/getUrl",
+            data:param,
+            dataType: "text",
+            success: function (response) {
+                if(response!=""){
+                    window.location.href = response;
+                }
+            }
+        })
+    }else{
+        alert(window.location.href);
+        var param = {
+            code:code
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/wx/oauth2/wxb165642e36b0a953/getUserInfo",
+            data:param,
+            dataType: "text",
+            success: function (response) {
+                $("#info").text(response)
+            }
+        })
+    }
+
+
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+
+</script>
+</html>
