@@ -2,7 +2,7 @@ post http://268pem.natappfree.cc/wx/templateMsg/wxb165642e36b0a953/send
 content-type: application/json
 
 {
-  "toUser": "okFHOwHRc0HTkL44xfHPK5qkriio",
+  "toUsers": ["okFHOwHRc0HTkL44xfHPK5qkriio","okFHOwH8-9rmcTmM2cA086swmIN8"],
   "templateId": "7_1P9gsTSxo2S_Yz1dowVEBb5Gr0LhLXj3rjuMMkDOg",
   "url":"http://www.baidu.com",
   "data":[

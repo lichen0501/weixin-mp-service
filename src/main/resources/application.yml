@@ -17,8 +17,8 @@ logging:
 wx:
   mp:
     configs:
-      - appId: wxb165642e36b0a953
-        secret: d2227ff0551f9f179df3a51b2de1ae8d
+      - appId: wx0e7cb88c27b682b9
+        secret: a0e3c94bcce8d6355c9c495e41837fb8
         token: newfiber
       - appId: 111
         secret: 111
