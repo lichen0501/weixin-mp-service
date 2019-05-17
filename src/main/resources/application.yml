@@ -20,7 +20,6 @@ wx:
       - appId: wx0e7cb88c27b682b9
         secret: a0e3c94bcce8d6355c9c495e41837fb8
         token: newfiber
-      - appId: 111
-        secret: 111
-        token: 111
-        aesKey: 111
+      - appId: wxb165642e36b0a953
+        secret: d2227ff0551f9f179df3a51b2de1ae8d
+
